@@ -10,6 +10,7 @@ import UpdateBenihPage from "./UpdateBenihPage";
 import AddUpdateStokPage from "./AddUpdateStokPage";
 import UserMen from "./usermen";
 import SettingsPage from "./SettingsPage";
+import LabPublicPortal from "./components/LabPublicPortal";
 
 const aduanRows = [
     {
@@ -67,10 +68,16 @@ const aduanRows = [
 ];
 
 export default function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [activeView, setActiveView] = useState("dashboard");
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    // Default to public portal or dashboard
+    const [activeView, setActiveView] = useState("public-portal");
 
     const isLaboratoriumView = activeView.startsWith("laboratorium");
+
+    // If viewing the public portal, render full screen landing portal
+    if (activeView === "public-portal") {
+        return <LabPublicPortal onNavigateToAdmin={setActiveView} />;
+    }
 
     if (!isLoggedIn) {
         return <LoginPage onLogin={() => setIsLoggedIn(true)} />;
