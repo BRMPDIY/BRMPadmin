@@ -147,17 +147,6 @@ export default function LabPublicPortal({ onNavigateToAdmin }) {
                             );
                         })}
                     </nav>
-
-                    {/* Action Button */}
-                    <div className="flex items-center gap-2">
-                        <button
-                            onClick={() => setShowSubmissionModal(true)}
-                            className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2 shadow-sm transition"
-                        >
-                            <Send size={13} />
-                            <span>Ajukan Uji Sampel</span>
-                        </button>
-                    </div>
                 </div>
 
                 {/* Mobile Nav Scroller */}
